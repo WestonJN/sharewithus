@@ -4,18 +4,6 @@
   "outputDirectory": "./dist",
   "installCommand": "npm install",
   "devCommand": null,
-  "env": {
-    "GOOGLE_CLIENT_ID": "@google_client_id",
-    "GOOGLE_API_KEY": "@google_api_key", 
-    "GOOGLE_FOLDER_ID": "@google_folder_id"
-  },
-  "build": {
-    "env": {
-      "GOOGLE_CLIENT_ID": "@google_client_id",
-      "GOOGLE_API_KEY": "@google_api_key",
-      "GOOGLE_FOLDER_ID": "@google_folder_id"
-    }
-  },
   "rewrites": [
     {
       "source": "/(.*)",
