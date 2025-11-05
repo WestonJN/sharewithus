@@ -112,23 +112,47 @@ function preventDefaults(e) {
 // Google API initialization
 async function initializeGoogleAPI() {
     try {
+        // Validate configuration first
+        if (!CONFIG.GOOGLE_DRIVE.CLIENT_ID || !CONFIG.GOOGLE_DRIVE.API_KEY) {
+            console.error('Missing Google API configuration');
+            showToast('Google Drive configuration missing. Please check environment variables.', 'error');
+            return;
+        }
+        
+        console.log('Initializing Google API with Client ID:', CONFIG.GOOGLE_DRIVE.CLIENT_ID);
+        
         // Load Google API
         await loadGoogleAPI();
         
         // Initialize the API
         await gapi.load('auth2:client', async () => {
-            await gapi.client.init({
-                apiKey: CONFIG.GOOGLE_DRIVE.API_KEY,
-                clientId: CONFIG.GOOGLE_DRIVE.CLIENT_ID,
-                discoveryDocs: [CONFIG.GOOGLE_DRIVE.DISCOVERY_DOC],
-                scope: CONFIG.GOOGLE_DRIVE.SCOPES
-            });
-            
-            AppState.gapi = gapi;
-            console.log('Google API initialized successfully');
+            try {
+                await gapi.client.init({
+                    apiKey: CONFIG.GOOGLE_DRIVE.API_KEY,
+                    clientId: CONFIG.GOOGLE_DRIVE.CLIENT_ID,
+                    discoveryDocs: [CONFIG.GOOGLE_DRIVE.DISCOVERY_DOC],
+                    scope: CONFIG.GOOGLE_DRIVE.SCOPES
+                });
+                
+                AppState.gapi = gapi;
+                console.log('Google API initialized successfully');
+                
+                // Check if already signed in
+                const authInstance = gapi.auth2.getAuthInstance();
+                AppState.isSignedIn = authInstance.isSignedIn.get();
+                console.log('Sign-in status:', AppState.isSignedIn);
+                
+            } catch (initError) {
+                console.error('Google API initialization error:', initError);
+                if (initError.error === 'invalid_client') {
+                    showToast('Invalid Google Client ID. Please check your configuration.', 'error');
+                } else {
+                    showToast('Google Drive setup error: ' + initError.error, 'error');
+                }
+            }
         });
     } catch (error) {
-        console.error('Error initializing Google API:', error);
+        console.error('Error loading Google API:', error);
         showToast('Google Drive integration not available. Please check configuration.', 'error');
     }
 }
