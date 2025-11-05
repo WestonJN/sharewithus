@@ -2,19 +2,20 @@
 
 A beautiful, single-page web application for uploading wedding photos to Google Drive. Perfect for allowing wedding guests to easily share their photos from your special day.
 
-![Wedding Photo Upload](https://via.placeholder.com/800x400/6b73ff/ffffff?text=Wedding+Photo+Upload+App)
-
 ## ✨ Features
 
-- **Elegant Design**: Beautiful, wedding-themed interface with romantic styling
-- **Drag & Drop Upload**: Intuitive file upload with drag-and-drop support
+- **Elegant Design**: Beautiful, wedding-themed interface with monochromatic styling
+- **Drag & Drop Upload**: Intuitive file upload with drag-and-drop support  
+- **Large File Support**: Upload files up to 100MB with resumable uploads
 - **Progress Tracking**: Real-time upload progress bars for each file
 - **Guest Names**: Optional guest name field to organize photos
 - **Mobile Responsive**: Works perfectly on all devices and screen sizes
 - **Google Drive Integration**: Secure upload directly to your Google Drive
-- **File Validation**: Supports multiple image formats with size limits
+- **File Validation**: Supports multiple image formats (JPEG, PNG, HEIC, WebP, etc.)
 - **Privacy Focused**: Secure handling of photos and guest data
+- **Environment Variables**: Secure credential management for production
 - **Modern Web Standards**: Built with HTML5, CSS3, and vanilla JavaScript
+- **Accessibility**: WCAG compliant with proper semantic markup
 
 ## 🚀 Quick Start
 

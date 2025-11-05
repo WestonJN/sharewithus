@@ -1,3 +1,12 @@
+/**
+ * Wedding Photo Upload Application
+ * A secure, responsive web application for uploading wedding photos to Google Drive
+ * 
+ * @author WestonJN
+ * @version 1.0.0
+ * @license MIT
+ */
+
 // Configuration with environment variable support
 const CONFIG = {
     // Google Drive API configuration
@@ -16,7 +25,10 @@ const CONFIG = {
     CHUNK_SIZE: 256 * 1024 // 256KB chunks for resumable uploads
 };
 
-// Application state
+/**
+ * Application state management
+ * @type {Object}
+ */
 const AppState = {
     files: [],
     isUploading: false,
@@ -24,7 +36,10 @@ const AppState = {
     isSignedIn: false
 };
 
-// DOM elements
+/**
+ * DOM element references for performance optimization
+ * @type {Object}
+ */
 const elements = {
     uploadArea: document.getElementById('uploadArea'),
     fileInput: document.getElementById('fileInput'),
@@ -35,18 +50,32 @@ const elements = {
     toast: document.getElementById('toast')
 };
 
-// Initialize the application
+// Initialize the application when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     initializeApp();
 });
 
+/**
+ * Initialize the application
+ * Sets up event listeners and Google API integration
+ * @async
+ * @throws {Error} When initialization fails
+ */
 async function initializeApp() {
-    setupEventListeners();
-    await initializeGoogleAPI();
-    showToast('Application ready! You can start uploading photos.', 'success');
+    try {
+        setupEventListeners();
+        await initializeGoogleAPI();
+        showToast('Application ready! You can start uploading photos.', 'success');
+    } catch (error) {
+        console.error('Failed to initialize application:', error);
+        showToast('Failed to initialize application. Please refresh the page.', 'error');
+    }
 }
 
-// Setup event listeners
+/**
+ * Setup event listeners for the application
+ * Configures drag & drop, file input, and button interactions
+ */
 function setupEventListeners() {
     // File input
     elements.fileInput.addEventListener('change', handleFileSelect);

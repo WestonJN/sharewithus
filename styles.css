@@ -1,35 +1,43 @@
-/* Modern Wedding Photo Upload - Enhanced Color Palette */
+/* Modern Wedding Photo Upload - Light Monochromatic Design with 60-30-10 Rule */
 :root {
-    --cream-light: #f7e6ca;
-    --cream-medium: #d4c8b7;
-    --gold-light: #c8a47b;
-    --brown-medium: #96765a;
-    --black: #000000;
+    /* Main color: #f7e6ca - Warm cream as primary */
+    --primary-60: #f7e6ca;         /* 60% - Main backgrounds, dominant color */
+    --primary-30: #e6d4b7;         /* 30% - Secondary elements, cards */
+    --primary-10: #d4c2a4;         /* 10% - Accent elements, borders */
     
-    /* Enhanced supporting colors */
+    /* Monochromatic variations */
+    --primary-lightest: #fdf8f0;   /* Ultra light for main backgrounds */
+    --primary-lighter: #fbf1e2;    /* Light for secondary backgrounds */
+    --primary-light: #f9ecd4;      /* Light for hover states */
+    --primary-base: #f7e6ca;       /* Base color (your main color) */
+    --primary-medium: #e6d4b7;     /* Medium for borders and subtle elements */
+    --primary-dark: #d4c2a4;       /* Dark for text and accents */
+    --primary-darker: #c2b092;     /* Darker for interactive elements */
+    --primary-darkest: #b09e80;    /* Darkest for strong accents */
+    
+    /* Supporting neutrals for readability */
     --white: #ffffff;
-    --off-white: #fefcf8;
-    --cream-ultra-light: #fbf5ed;
-    --gold-ultra-light: #f0e6d6;
-    --brown-light: #b8967d;
-    --brown-dark: #7a5f4a;
-    --warm-gray: #8a7968;
-    --text-primary: #2c2117;
-    --text-secondary: #5a4a3a;
-    --text-light: #7a6b5d;
+    --text-primary: #4a3f35;       /* Dark brown for primary text */
+    --text-secondary: #6b5d52;     /* Medium brown for secondary text */
+    --text-light: #8a7c71;         /* Light brown for subtle text */
+    --text-accent: #3d342b;        /* Very dark for emphasis */
     
-    /* Enhanced gradients */
-    --gradient-primary: linear-gradient(135deg, var(--off-white) 0%, var(--cream-ultra-light) 30%, var(--cream-light) 70%, var(--cream-medium) 100%);
-    --gradient-secondary: linear-gradient(135deg, var(--gold-light) 0%, var(--brown-medium) 100%);
-    --gradient-accent: linear-gradient(135deg, var(--cream-medium) 0%, var(--gold-light) 50%, var(--brown-light) 100%);
-    --gradient-soft: linear-gradient(135deg, var(--white) 0%, var(--cream-ultra-light) 100%);
-    --gradient-warm: linear-gradient(135deg, var(--gold-ultra-light) 0%, var(--cream-light) 100%);
+    /* Functional colors */
+    --success: #7c9a6b;            /* Muted green that complements cream */
+    --error: #b87a7a;              /* Muted red that complements cream */
+    --warning: #c4a574;            /* Golden brown for warnings */
     
-    /* Enhanced shadows with warm tones */
-    --shadow-light: 0 4px 20px rgba(150, 118, 90, 0.08);
-    --shadow-medium: 0 8px 30px rgba(150, 118, 90, 0.12);
-    --shadow-heavy: 0 15px 40px rgba(150, 118, 90, 0.18);
-    --shadow-warm: 0 6px 25px rgba(200, 164, 123, 0.15);
+    /* Enhanced gradients using monochromatic scheme */
+    --gradient-primary: linear-gradient(135deg, var(--primary-lightest) 0%, var(--primary-lighter) 40%, var(--primary-base) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--primary-base) 0%, var(--primary-medium) 100%);
+    --gradient-accent: linear-gradient(135deg, var(--primary-lighter) 0%, var(--primary-light) 100%);
+    --gradient-soft: linear-gradient(135deg, var(--white) 0%, var(--primary-lightest) 100%);
+    
+    /* Subtle shadows */
+    --shadow-light: 0 2px 12px rgba(74, 63, 53, 0.06);
+    --shadow-medium: 0 4px 20px rgba(74, 63, 53, 0.08);
+    --shadow-heavy: 0 8px 30px rgba(74, 63, 53, 0.12);
+    --shadow-warm: 0 3px 15px rgba(212, 194, 164, 0.15);
     
     --border-radius: 16px;
     --border-radius-lg: 24px;
@@ -45,7 +53,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: var(--gradient-primary);
+    background: var(--gradient-primary); /* 60% - Primary background */
     min-height: 100vh;
     color: var(--text-primary);
     line-height: 1.6;
@@ -60,9 +68,8 @@ body::before {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 20% 80%, rgba(200, 164, 123, 0.08) 0%, transparent 60%),
-        radial-gradient(circle at 80% 20%, rgba(150, 118, 90, 0.06) 0%, transparent 60%),
-        radial-gradient(circle at 50% 50%, rgba(247, 230, 202, 0.05) 0%, transparent 70%);
+        radial-gradient(circle at 20% 80%, rgba(247, 230, 202, 0.3) 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, rgba(230, 212, 183, 0.2) 0%, transparent 60%);
     pointer-events: none;
     z-index: -1;
 }
@@ -82,11 +89,11 @@ body::before {
     text-align: center;
     margin-bottom: 50px;
     padding: 40px 30px;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(15px);
+    background: var(--white); /* Clean white background */
+    backdrop-filter: blur(10px);
     border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-warm);
-    border: 1px solid rgba(200, 164, 123, 0.2);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--primary-medium);
     position: relative;
     overflow: hidden;
 }
@@ -97,9 +104,9 @@ body::before {
     top: 0;
     left: 0;
     right: 0;
-    height: 2px;
-    background: var(--gradient-secondary);
-    opacity: 0.6;
+    height: 3px;
+    background: var(--gradient-secondary); /* 10% accent */
+    opacity: 0.8;
 }
 
 .title {
@@ -116,11 +123,11 @@ body::before {
 }
 
 .title i {
-    color: var(--gold-light);
+    color: var(--primary-darker); /* 10% accent color */
     margin-right: 20px;
     animation: heartbeat 2s ease-in-out infinite;
-    -webkit-text-fill-color: var(--gold-light);
-    filter: drop-shadow(0 2px 4px rgba(200, 164, 123, 0.3));
+    -webkit-text-fill-color: var(--primary-darker);
+    filter: drop-shadow(0 2px 4px rgba(212, 194, 164, 0.3));
 }
 
 @keyframes heartbeat {
@@ -146,12 +153,12 @@ body::before {
 }
 
 .upload-section {
-    background: var(--gradient-soft);
-    backdrop-filter: blur(20px);
+    background: var(--primary-lighter); /* 30% - Secondary background */
+    backdrop-filter: blur(10px);
     border-radius: var(--border-radius-lg);
     padding: 40px;
     box-shadow: var(--shadow-medium);
-    border: 1px solid rgba(200, 164, 123, 0.15);
+    border: 1px solid var(--primary-medium);
     position: relative;
     overflow: hidden;
 }
@@ -163,8 +170,8 @@ body::before {
     left: 0;
     right: 0;
     height: 4px;
-    background: var(--gradient-secondary);
-    opacity: 0.8;
+    background: var(--gradient-secondary); /* 10% accent */
+    opacity: 0.9;
 }
 
 /* Guest info */
@@ -186,21 +193,21 @@ body::before {
 
 .input-group input {
     padding: 16px 20px;
-    border: 2px solid var(--cream-medium);
+    border: 2px solid var(--primary-medium);
     border-radius: var(--border-radius);
     font-size: 1rem;
     transition: var(--transition);
-    background: var(--white);
+    background: var(--white); /* Clean white background */
     color: var(--text-primary);
-    box-shadow: inset 0 2px 4px rgba(150, 118, 90, 0.05);
+    box-shadow: inset 0 1px 3px rgba(74, 63, 53, 0.05);
 }
 
 .input-group input:focus {
     outline: none;
-    border-color: var(--gold-light);
+    border-color: var(--primary-dark); /* 10% accent */
     background: var(--white);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-light), inset 0 2px 4px rgba(200, 164, 123, 0.1);
+    box-shadow: var(--shadow-light), inset 0 1px 3px rgba(212, 194, 164, 0.1);
 }
 
 .input-group input::placeholder {
@@ -209,16 +216,16 @@ body::before {
 
 /* Upload area */
 .upload-area {
-    border: 3px dashed var(--gold-light);
+    border: 3px dashed var(--primary-dark); /* 10% accent border */
     border-radius: var(--border-radius-lg);
     padding: 50px 30px;
     text-align: center;
     transition: var(--transition);
     cursor: pointer;
-    background: var(--gradient-warm);
+    background: var(--primary-base); /* 60% main color background */
     position: relative;
     overflow: hidden;
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
 .upload-area::before {
@@ -245,16 +252,16 @@ body::before {
 }
 
 .upload-area:hover {
-    border-color: var(--brown-medium);
-    background: linear-gradient(135deg, var(--white) 0%, var(--cream-ultra-light) 50%, var(--gold-ultra-light) 100%);
+    border-color: var(--primary-darker); /* Darker on hover */
+    background: var(--primary-light); /* Lighter shade on hover */
     transform: translateY(-4px);
     box-shadow: var(--shadow-heavy);
     opacity: 1;
 }
 
 .upload-area.dragover {
-    border-color: var(--brown-dark);
-    background: linear-gradient(135deg, var(--gold-ultra-light) 0%, var(--cream-light) 100%);
+    border-color: var(--primary-darkest); /* Darkest for strong interaction */
+    background: var(--primary-lighter);
     transform: scale(1.02);
     opacity: 1;
 }
@@ -266,11 +273,11 @@ body::before {
 
 .upload-icon {
     font-size: 4.5rem;
-    color: var(--brown-medium);
+    color: var(--primary-darker); /* 10% accent */
     margin-bottom: 25px;
     display: block;
     animation: float 3s ease-in-out infinite;
-    filter: drop-shadow(0 4px 8px rgba(150, 118, 90, 0.2));
+    filter: drop-shadow(0 4px 8px rgba(212, 194, 164, 0.3));
 }
 
 @keyframes float {
@@ -291,23 +298,23 @@ body::before {
 }
 
 .browse-link {
-    color: var(--brown-medium);
+    color: var(--primary-darker); /* 10% accent */
     font-weight: 600;
     cursor: pointer;
     text-decoration: underline;
-    text-decoration-color: var(--gold-light);
+    text-decoration-color: var(--primary-dark);
     transition: var(--transition);
 }
 
 .browse-link:hover {
-    color: var(--brown-dark);
-    text-decoration-color: var(--brown-medium);
+    color: var(--primary-darkest);
+    text-decoration-color: var(--primary-darker);
 }
 
 .supported-formats {
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 1px solid var(--cream-medium);
+    border-top: 1px solid var(--primary-medium);
 }
 
 .supported-formats small {
@@ -336,20 +343,21 @@ body::before {
     align-items: center;
     padding: 20px;
     margin-bottom: 15px;
-    background: var(--white);
+    background: var(--white); /* Clean white cards */
     backdrop-filter: blur(10px);
     border-radius: var(--border-radius);
-    border-left: 4px solid var(--gold-light);
+    border-left: 4px solid var(--primary-dark); /* 10% accent */
     animation: slideIn 0.3s ease;
     box-shadow: var(--shadow-light);
-    border: 1px solid rgba(200, 164, 123, 0.15);
+    border: 1px solid var(--primary-medium);
     transition: var(--transition);
 }
 
 .file-item:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-medium);
-    border-color: rgba(200, 164, 123, 0.25);
+    border-color: var(--primary-dark);
+    border-left-color: var(--primary-darker);
 }
 
 @keyframes slideIn {
@@ -359,7 +367,7 @@ body::before {
 
 .file-icon {
     font-size: 1.8rem;
-    color: var(--brown-medium);
+    color: var(--primary-darker); /* 10% accent */
     margin-right: 20px;
 }
 
@@ -383,7 +391,7 @@ body::before {
 .file-progress {
     margin-top: 10px;
     height: 8px;
-    background: var(--cream-medium);
+    background: var(--primary-lighter);
     border-radius: 4px;
     overflow: hidden;
     display: none;
@@ -395,7 +403,7 @@ body::before {
 
 .progress-bar {
     height: 100%;
-    background: var(--gradient-secondary);
+    background: var(--gradient-secondary); /* 10% accent gradient */
     border-radius: 4px;
     transition: width 0.3s ease;
     position: relative;
@@ -432,7 +440,7 @@ body::before {
 .remove-file {
     background: none;
     border: none;
-    color: var(--warm-gray);
+    color: var(--text-light);
     font-size: 1.3rem;
     cursor: pointer;
     padding: 8px;
@@ -442,7 +450,7 @@ body::before {
 }
 
 .remove-file:hover {
-    background: var(--brown-medium);
+    background: var(--primary-darker);
     color: var(--white);
     transform: scale(1.1);
 }
@@ -475,21 +483,21 @@ body::before {
 }
 
 .upload-btn {
-    background: var(--gradient-secondary);
+    background: var(--gradient-secondary); /* 10% accent gradient */
     color: var(--white);
     box-shadow: var(--shadow-medium);
-    border: 1px solid rgba(150, 118, 90, 0.2);
+    border: 1px solid var(--primary-dark);
 }
 
 .upload-btn:hover:not(:disabled) {
     transform: translateY(-3px);
     box-shadow: var(--shadow-heavy);
-    background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-medium) 100%);
+    background: linear-gradient(135deg, var(--primary-darkest) 0%, var(--primary-darker) 100%);
 }
 
 .upload-btn:disabled {
-    background: var(--cream-medium);
-    color: var(--warm-gray);
+    background: var(--primary-lighter);
+    color: var(--text-light);
     cursor: not-allowed;
     box-shadow: none;
     opacity: 0.7;
@@ -497,31 +505,31 @@ body::before {
 
 .clear-btn {
     background: var(--white);
-    color: var(--brown-medium);
-    border: 2px solid var(--cream-medium);
+    color: var(--primary-darker);
+    border: 2px solid var(--primary-medium);
     box-shadow: var(--shadow-light);
 }
 
 .clear-btn:hover {
-    background: var(--brown-medium);
+    background: var(--primary-darker);
     color: var(--white);
     transform: translateY(-3px);
     box-shadow: var(--shadow-medium);
-    border-color: var(--brown-medium);
+    border-color: var(--primary-darker);
 }
 
 /* Instructions */
 .instructions {
-    background: var(--gradient-soft);
+    background: var(--white);
     backdrop-filter: blur(20px);
     border-radius: var(--border-radius-lg);
     padding: 35px;
     box-shadow: var(--shadow-light);
-    border: 1px solid rgba(200, 164, 123, 0.15);
+    border: 2px solid var(--primary-medium);
 }
 
 .instructions h3 {
-    color: var(--text-primary);
+    color: var(--text-dark);
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -531,7 +539,7 @@ body::before {
 }
 
 .instructions h3 i {
-    color: var(--gold-light);
+    color: var(--primary-darker);
     font-size: 1.5rem;
 }
 
@@ -544,7 +552,7 @@ body::before {
     padding: 10px 0;
     padding-left: 30px;
     position: relative;
-    color: var(--text-secondary);
+    color: var(--text-medium);
     font-size: 1rem;
 }
 
@@ -552,15 +560,15 @@ body::before {
     content: '✓';
     position: absolute;
     left: 0;
-    color: var(--gold-light);
+    color: var(--primary-darker);
     font-weight: bold;
     font-size: 1.1rem;
 }
 
 /* Privacy notice */
 .privacy-notice {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(251, 245, 237, 0.9));
-    border: 1px solid var(--cream-medium);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), var(--primary-lightest));
+    border: 1px solid var(--primary-medium);
     border-radius: var(--border-radius);
     padding: 25px;
     text-align: center;
@@ -569,7 +577,7 @@ body::before {
 }
 
 .privacy-notice p {
-    color: var(--text-secondary);
+    color: var(--text-medium);
     font-size: 1rem;
     display: flex;
     align-items: center;
@@ -579,7 +587,7 @@ body::before {
 }
 
 .privacy-notice i {
-    color: var(--gold-light);
+    color: var(--primary-darker);
     font-size: 1.2rem;
 }
 
@@ -597,9 +605,9 @@ body::before {
     transition: var(--transition);
     z-index: 1000;
     max-width: 350px;
-    border-left: 4px solid var(--gold-light);
-    border: 1px solid rgba(200, 164, 123, 0.2);
-    color: var(--text-primary);
+    border-left: 4px solid var(--primary-darker);
+    border: 1px solid var(--primary-medium);
+    color: var(--text-dark);
 }
 
 .toast.show {
@@ -607,13 +615,13 @@ body::before {
 }
 
 .toast.success {
-    border-left-color: var(--gold-light);
-    color: var(--text-secondary);
+    border-left-color: var(--primary-darker);
+    color: var(--text-medium);
 }
 
 .toast.error {
-    border-left-color: var(--brown-dark);
-    color: var(--text-primary);
+    border-left-color: var(--primary-darkest);
+    color: var(--text-dark);
 }
 
 /* Loading state */
@@ -735,43 +743,6 @@ body::before {
     }
 }
 
-/* Dark mode adaptation */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --white: #1a1611;
-        --off-white: #201b16;
-        --cream-ultra-light: #2a251f;
-        --text-primary: #f7e6ca;
-        --text-secondary: #d4c8b7;
-        --text-light: #c8a47b;
-    }
-    
-    .upload-section,
-    .instructions,
-    .file-item,
-    .header {
-        background: rgba(26, 22, 17, 0.85);
-        border-color: rgba(200, 164, 123, 0.3);
-        color: var(--text-primary);
-    }
-    
-    .toast {
-        background: rgba(26, 22, 17, 0.95);
-        color: var(--text-primary);
-    }
-    
-    .input-group input {
-        background: rgba(42, 37, 31, 0.8);
-        color: var(--text-primary);
-        border-color: var(--brown-light);
-    }
-    
-    .upload-area {
-        background: linear-gradient(135deg, rgba(42, 37, 31, 0.6) 0%, rgba(32, 27, 22, 0.8) 100%);
-        border-color: var(--gold-light);
-    }
-}
-
 /* Enhanced animations */
 @keyframes gradientShift {
     0% { background-position: 0% 50%; }
@@ -796,7 +767,7 @@ body::before {
 /* Focus styles for accessibility */
 button:focus,
 input:focus {
-    outline: 2px solid var(--gold-light);
+    outline: 2px solid var(--primary-darker);
     outline-offset: 2px;
 }
 
