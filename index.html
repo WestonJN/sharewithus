@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Photo Upload</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <i class="fas fa-heart"></i>
+                Share Your Wedding Memories
+            </h1>
+            <p class="subtitle">Upload your beautiful photos and moments from our special day</p>
+        </header>
+
+        <main class="main-content">
+            <div class="upload-section">
+                <div class="guest-info">
+                    <div class="input-group">
+                        <label for="guestName">Your Name (Optional)</label>
+                        <input type="text" id="guestName" placeholder="Enter your name">
+                    </div>
+                </div>
+
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <h3>Drag & Drop Photos Here</h3>
+                        <p>or <span class="browse-link">browse to select files</span></p>
+                        <input type="file" id="fileInput" multiple accept="image/*" hidden>
+                        <div class="supported-formats">
+                            <small>Supported formats: JPG, PNG, HEIC, WebP, TIFF, BMP (Max 100MB each)</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="file-list" id="fileList"></div>
+
+                <div class="upload-controls">
+                    <button id="uploadBtn" class="upload-btn" disabled>
+                        <i class="fas fa-upload"></i>
+                        Upload Photos to Drive
+                    </button>
+                    <button id="clearBtn" class="clear-btn">
+                        <i class="fas fa-trash"></i>
+                        Clear All
+                    </button>
+                </div>
+            </div>
+
+            <div class="instructions">
+                <h3><i class="fas fa-info-circle"></i> Instructions</h3>
+                <ul>
+                    <li>Select or drag multiple photos at once</li>
+                    <li>Photos will be uploaded to our shared wedding album</li>
+                    <li>Your name will help us organize the photos</li>
+                    <li>Please ensure photos are appropriate for all guests</li>
+                    <li>Large files may take longer to upload</li>
+                </ul>
+            </div>
+
+            <div class="privacy-notice">
+                <p><i class="fas fa-shield-alt"></i> Your privacy is important to us. Photos are uploaded securely to Google Drive and only shared with the wedding couple.</p>
+            </div>
+        </main>
+
+        <div class="toast" id="toast"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

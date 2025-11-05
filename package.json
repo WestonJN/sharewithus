@@ -1,0 +1,22 @@
+{
+  "name": "wedding-photo-upload",
+  "version": "1.0.0",
+  "description": "A single-page web app for uploading wedding photos to Google Drive",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 3000",
+    "serve": "python -m http.server 3000",
+    "dev": "python -m http.server 3000"
+  },
+  "keywords": [
+    "wedding",
+    "photos",
+    "upload",
+    "google-drive",
+    "web-app"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
