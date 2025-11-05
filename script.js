@@ -1,12 +1,12 @@
-// Configuration
+// Configuration with environment variable support
 const CONFIG = {
     // Google Drive API configuration
     GOOGLE_DRIVE: {
-        CLIENT_ID: 'YOUR_GOOGLE_CLIENT_ID', // Replace with your Google Client ID
-        API_KEY: 'YOUR_GOOGLE_API_KEY',     // Replace with your Google API Key
+        CLIENT_ID: window.ENV?.GOOGLE_CLIENT_ID || '825088894160-380fonneraolde3iu7lrfkeji1adc59t.apps.googleusercontent.com',
+        API_KEY: window.ENV?.GOOGLE_API_KEY || 'AIzaSyBH36eDKqrWWu-6ffPfDiQ_zVOWrlGlieQ',
         DISCOVERY_DOC: 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest',
         SCOPES: 'https://www.googleapis.com/auth/drive.file',
-        FOLDER_ID: 'YOUR_FOLDER_ID' // Replace with your Google Drive folder ID
+        FOLDER_ID: window.ENV?.GOOGLE_FOLDER_ID || '1ftA7HMju_-7pLQnvuJFNJT0_nVyZFlHc'
     },
     
     // File upload settings

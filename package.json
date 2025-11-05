@@ -7,8 +7,9 @@
     "start": "python -m http.server 3000",
     "serve": "python -m http.server 3000",
     "dev": "python -m http.server 3000",
-    "build": "echo 'No build step required for static site'",
-    "deploy": "vercel --prod"
+    "build": "node build.js",
+    "deploy": "vercel --prod",
+    "env:setup": "node setup-env.js"
   },
   "keywords": [
     "wedding",
@@ -19,6 +20,8 @@
   ],
   "author": "",
   "license": "MIT",
-  "devDependencies": {},
+  "devDependencies": {
+    "fs-extra": "^11.1.1"
+  },
   "dependencies": {}
 }
