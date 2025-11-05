@@ -6,7 +6,9 @@
   "scripts": {
     "start": "python -m http.server 3000",
     "serve": "python -m http.server 3000",
-    "dev": "python -m http.server 3000"
+    "dev": "python -m http.server 3000",
+    "build": "echo 'No build step required for static site'",
+    "deploy": "vercel --prod"
   },
   "keywords": [
     "wedding",

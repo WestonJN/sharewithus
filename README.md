@@ -97,10 +97,13 @@ This simulates the upload process without actually uploading files.
 - PNG
 - HEIC
 - WebP
+- TIFF
+- BMP
 
 ### File Limits
-- Maximum file size: 10MB per file
-- Maximum files: 50 files per session
+- Maximum file size: 100MB per file (increased capacity)
+- Maximum files: 100 files per session
+- Supports resumable uploads for large files
 
 ### Browser Compatibility
 - Chrome (recommended)
@@ -150,6 +153,16 @@ Access tasks via: `Ctrl+Shift+P` → "Tasks: Run Task"
 
 ## 🚀 Deployment
 
+### Vercel (Recommended)
+Vercel offers the best performance with automatic HTTPS, global CDN, and seamless deployment:
+
+1. Push your code to GitHub
+2. Go to [Vercel](https://vercel.com/)
+3. Sign in with GitHub
+4. Click "New Project" and import your repository
+5. Deploy with default settings
+6. Update Google OAuth settings with your new Vercel domain
+
 ### GitHub Pages
 1. Push your code to a GitHub repository
 2. Go to Settings → Pages
@@ -158,11 +171,6 @@ Access tasks via: `Ctrl+Shift+P` → "Tasks: Run Task"
 
 ### Netlify
 1. Connect your GitHub repository to Netlify
-2. Deploy with default settings
-3. Update Google OAuth settings with your new domain
-
-### Vercel
-1. Import your GitHub repository to Vercel
 2. Deploy with default settings
 3. Update Google OAuth settings with your new domain
 
